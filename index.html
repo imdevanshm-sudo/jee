@@ -1,4 +1,49 @@
-import React, { useState, useEffect } from 'react';
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Jee Main</title>
+  <script>
+    tailwind = {
+      config: {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "primary": "#ca1c4a",
+              "maroon": "#590D22",
+              "midnight": "#211115",
+              "surface-dark": "#2D181E",
+              "background-light": "#f8f6f6",
+              "background-dark": "#211115",
+              "gold": "#D4AF37",
+              "gold-light": "#FCF6BA",
+              "gold-med": "#BF953F",
+              "gold-dark": "#B38728",
+              "ivory": "#FDFBF7"
+            },
+            fontFamily: {
+              "display": ["Inter", "sans-serif"],
+              "heading": ["Playfair Display", "serif"],
+              "sub": ["Cormorant Garamond", "serif"],
+              "body": ["Tenor Sans", "sans-serif"],
+              "nav": ["Montserrat", "sans-serif"]
+            }
+          }
+        }
+      }
+    };
+  </script>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+  <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+<body>
+  <div id="root"></div>
+  <script type="text/babel">
+const { useState, useEffect } = React;
 
 // --- Global Styles & Tailwind Configuration ---
 const GlobalStyles = () => (
@@ -662,7 +707,7 @@ const ConciergeView = () => (
 
 // --- Main App Component ---
 
-export default function App() {
+function App() {
   const [currentView, setCurrentView] = useState('home');
 
   useEffect(() => {
@@ -772,3 +817,8 @@ export default function App() {
     </div>
   );
 }
+
+ReactDOM.createRoot(document.getElementById('root')).render(<App />);
+  </script>
+</body>
+</html>
