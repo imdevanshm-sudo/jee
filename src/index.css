@@ -1,0 +1,108 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #D4AF37;
+  --color-primary-alt: #edbc1d;
+  --color-ivory: #F9F7F2;
+  --color-cream: #FDFCF9;
+  --color-ink: #1A1A1A;
+  --color-stone: #66625C;
+  --color-border-light: #EBE5D5;
+  
+  --font-display: "Bodoni Moda", serif;
+  --font-body: "Cormorant Garamond", serif;
+  --font-sans: "Jost", sans-serif;
+  --font-newsreader: "Newsreader", serif;
+  --font-noto: "Noto Sans", sans-serif;
+
+  --radius-pill: 999px;
+  --radius-editorial: 200px;
+}
+
+@layer utilities {
+  .bg-noise {
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.05'/%3E%3C/svg%3E");
+  }
+  .writing-vertical-rl {
+    writing-mode: vertical-rl;
+  }
+}
+
+body {
+  background-color: var(--color-ivory);
+  color: var(--color-ink);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+}
+
+::-webkit-scrollbar {
+    width: 6px;
+}
+::-webkit-scrollbar-track {
+    background: var(--color-ivory); 
+}
+::-webkit-scrollbar-thumb {
+    background: var(--color-primary); 
+    border-radius: 3px;
+}
+
+.drop-cap::first-letter {
+    float: left;
+    font-family: var(--font-display);
+    font-size: 64px;
+    line-height: 56px;
+    padding-right: 12px;
+    padding-top: 4px;
+    color: var(--color-primary);
+    font-weight: 700;
+}
+
+/* Custom styles for RSVP form */
+.input-underline {
+    border-bottom: 1px solid var(--color-ink);
+    transition: border-color 0.3s ease, border-width 0.3s ease;
+}
+.input-underline:focus-within {
+    border-color: var(--color-primary);
+    border-width: 2px;
+}
+.custom-input {
+    width: 100%;
+    background: transparent;
+    border: none;
+    padding: 0.5rem 0;
+    font-family: var(--font-newsreader);
+    font-size: 24px;
+    color: var(--color-ink);
+    outline: none;
+    box-shadow: none;
+}
+.custom-input:focus {
+    box-shadow: none;
+    outline: none;
+}
+.custom-input::placeholder {
+    color: #d1cdc7;
+    font-style: italic;
+}
+
+.radio-group input[type="radio"] {
+    display: none;
+}
+.radio-group label {
+    cursor: pointer;
+    padding: 12px 24px;
+    border: 1px solid var(--color-border-light);
+    border-radius: 9999px;
+    font-family: var(--font-noto);
+    text-transform: uppercase;
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    transition: all 0.3s ease;
+    color: var(--color-stone);
+}
+.radio-group input[type="radio"]:checked + label {
+    background-color: var(--color-cream);
+    border-color: var(--color-primary);
+    color: var(--color-ink);
+}
